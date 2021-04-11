@@ -9,7 +9,6 @@ body{
 	color: #000;
 	width: 100%;
 	margin: 0 auto;
-	padding: 0 10px;
 }
 
 header{
@@ -24,7 +23,7 @@ nav{
 }
 
 aside{
-	padding: 0;
+	padding: 0 10px 0 25px;
 	font-size: 0.9em;
 	position: relative;
 	float: right;
@@ -40,13 +39,6 @@ main{
 #principal{
 	position: relative;
 	float: left;
-	width: 73%;
-}
-
-#secundario{
-	position: relative;
-	float: right;
-	width: 22%;
 }
 
 footer{
@@ -67,7 +59,7 @@ h1{
 #principal h2{
 	color: #C60;
 }
-#secundario h2{
+#article3 h2{
 	background-color: #DB905C;
 	padding: 0.2em;
 	font-size: 1em;
@@ -100,7 +92,7 @@ h3{
 
 #favoritos{
 	padding: 5px;
-	margin-top: 1em;
+	margin-top: 1em ;
 	background-color: #F8F8F8;
 	border: 1px solid #C5C5C5; 
 }
@@ -115,7 +107,7 @@ deve ter uma moldura de 1px, de linha sólida e cor #C5C5C5.*/
 
 #grupos{
 	padding: 5px;
-	margin-top: 0.5em;
+	margin: 1em 0;
 	background-color: #FFF6CD;
 	border: 1px dashed #C60; 
 }
@@ -135,11 +127,11 @@ e uma moldura tracejada de 1px e cor #C60. */
 	text-align: justify;
 }
 
-#secundario article{
+#article3 article{
 	margin-bottom: 1em;
 }
 
-#secundario p{
+#article3 p{
 	margin: 0.2em 0;
 	padding: 0 5px;
 }
