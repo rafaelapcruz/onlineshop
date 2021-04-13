@@ -73,32 +73,32 @@
   <tbody>
     <tr class="cart-row">
       <th class="cart-item" scope="row"><img src="#"><span>1</span></th>
-      <td class="cart-price">price</td>
-      <td class="cart-quantity"><input class="btn-quantity" type="number" min="0"></td>
-      <td class="cart-subtotal"><span class="subtotal-spacing">price</span><button type="button" class="btn btn-danger btn-sm">Remove</td>
+      <td class="cart-price">20€</td>
+      <td class="cart-quantity"><input class="btn-quantity" type="number" min="1"></td>
+      <td class="cart-subtotal"><span class="subtotal-value">subtotal</span><button type="button" class="btn btn-danger btn-sm btn-spacing">Remove</td>
     </tr>
     <tr class="cart-row">
       <th class="cart-item" scope="row"><img src="#"><span>2</span></th>
-      <td class="cart-price">price</td>
-      <td class="cart-quantity"><input class="btn-quantity" type="number" min="0"></td>
-      <td class="cart-subtotal"><span class="subtotal-spacing">price</span><button type="button" class="btn btn-danger btn-sm">Remove</td>
+      <td class="cart-price">20€</td>
+      <td class="cart-quantity"><input class="btn-quantity" type="number" min="1"></td>
+      <td class="cart-subtotal"><span class="subtotal-value">subtotal</span><button type="button" class="btn btn-danger btn-sm btn-spacing">Remove</td>
     </tr>
   </tbody>
   <tfoot class="cart-footer">
   	<tr>
-      <th scope="row"></th>
-      <td></td>
-      <td><button type="button" class="btn btn-outline-success btn-sm">Cart update</td>
-      <td><span>total</span></td>
+      <th scope="row" colspan="3"><button type="button" class="btn btn-outline-success btn-sm" onclick="updateCartSubtotal()">Cart update</th>
+      <td class="cart-total">0</td>
     </tr>
   </tfoot>
 </table>
-<div class="btn-checkout"><button type="button" class="btn btn-success btn-lg">Checkout</div>
+<div class="btn-checkout"><button type="button" class="btn btn-success btn-lg" onclick="removeCartTable()">Checkout</div>
+<div id="backtoshop"></div>	
 
 </section>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script type="text/javascript" src="store.js"></script>
 
 </body>
 </html>

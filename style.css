@@ -103,8 +103,17 @@ main{
 	margin-bottom: 1em;
 }
 
-#principal p{
+#principal article p{
 	text-align: justify;
+}
+
+#carouselExampleControls{
+	width: 60%;
+	margin: 15px auto 10px auto;
+}
+
+#cardProducts{
+	margin-top: 10px;
 }
 
 footer{
@@ -141,8 +150,8 @@ footer{
 	text-align: center;
 }
 
-.subtotal-spacing {
-	margin-right: 15px;
+.btn-spacing {
+	margin-left: 15px;
 }
 
 .btn-checkout {
