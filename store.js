@@ -1,4 +1,6 @@
 
+console.log(localStorage.getItem("title")); //não funciona
+
 function removeCartTable() {
 	var cartTable = document.getElementsByClassName('cart-table')[0];
 	cartTable.remove()

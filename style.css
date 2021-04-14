@@ -126,6 +126,12 @@ footer{
 	font-size: 0.8em;
 }
 
+#footer a{
+	text-align: left;
+	text-decoration:none;
+	color: inherit;
+}
+
 #footer p{
 	text-align: right;
 }
