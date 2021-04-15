@@ -1,5 +1,38 @@
 
-console.log(localStorage.getItem("title")); //não funciona
+var title = (localStorage.getItem("title")).split(",");
+var price = (localStorage.getItem("price")).split(",");
+var image = (localStorage.getItem("image")).split(",");
+console.log(title, price, image);
+
+document.addEventListener("DOMContentLoaded", addItemToCart(title));
+
+function addItemToCart(title) {
+	for (var i = 0; i < title.length; i++) {
+	var itemName = title[i];
+	var newCartRow = document.createElement('tr');
+	var cartBody = document.getElementById('cart-body');
+	/*
+	var cartItemTitle = document.getElementsByClassName('title');
+	for (var i = 0; i < cartItemTitle.length; i++) {
+		if (cartItemTitle[i].innerText == itemName) {
+			var cartRow = cartItemTitle.parentElement.parentElement; //equals to cartElement
+			var quantityElement = rowElement.getElementsByClassName('btn-quantity')[0];
+			quantityElement.innerHTML = quantityElement.value + 1;
+			return
+		}
+	}*/	
+	var cartRowHTLM = `
+		<tr class="cart-row">
+			<th class="cart-item" scope="row"><img src="${image[i]}" width="50" height="50"><span class="title">${title[i]}</span></th>
+			<td class="cart-price">${price[i]}</td>
+			<td class="cart-quantity"><input class="btn-quantity" type="number" min="1" value="1"></td>
+			<td class="cart-subtotal"><span class="subtotal-value">subtotal</span><button type="button" class="btn btn-danger btn-sm btn-spacing">Remove</td>
+		</tr>`
+	newCartRow.innerHTML = cartRowHTLM;
+	cartBody.append(newCartRow);
+	newCartRow.getElementsByClassName('btn-quantity')[0].addEventListener('change', updateCartSubtotal);
+	}
+}
 
 function removeCartTable() {
 	var cartTable = document.getElementsByClassName('cart-table')[0];
@@ -12,8 +45,8 @@ function removeCartItem(event) {
 	if (cartRows.length == 1) {
 		removeCartTable();
 		document.getElementsByClassName('btn-checkout')[0].innerHTML = "Your cart is empty!";
-		//var buttonEnd = "<button type="button" class="btn">Continue shopping"; //substituir Maria
-		document.getElementById('backtoshop').innerHTML = "Maria";
+		var buttonHome = '<a class="btn btn-primary" href="./index.html" role="button" style="background-color: #f7d1ba; border-color: #DB905C; text-align: center;">Continue shopping</a>';
+		document.getElementById('backToHome').innerHTML = buttonHome;
 	} else {
 	var buttonClicked = event.target; //seleciona o botão que foi o "target" do evento (click)
 	buttonClicked.parentElement.parentElement.remove()

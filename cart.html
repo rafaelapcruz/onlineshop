@@ -15,7 +15,7 @@
   	<a class="navbar-brand" href="#">
       <img src="./images/cover2.jpg" alt="" width="30" height="24">
     </a>
-    <a class="navbar-brand" href="#">Sunflower House</a>
+    <a class="navbar-brand" href="./index.html">Sunflower House</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="d-flex">
-    	<a class="navbar-text" style="text-decoration: none" href="./shopping-cart.html">Shopping Cart<span style="padding-left: 5px"><i class="fas fa-shopping-cart"></i></span></a>
+    	<a class="navbar-text" href="./cart.html" style="text-decoration: none">Shopping Cart<span style="padding-left: 5px"><i class="fas fa-shopping-cart"></i></span></a>
     </div>
   </div>
 </nav>
@@ -70,17 +70,17 @@
       <th scope="col">Subtotal</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="cart-body">
     <tr class="cart-row">
-      <th class="cart-item" scope="row"><img src="#"><span class="title">1</span></th>
+      <th class="cart-item" scope="row"><img src="#" width="50" height="50"><span class="title">1</span></th>
       <td class="cart-price">20€</td>
-      <td class="cart-quantity"><input class="btn-quantity" type="number" min="1"></td>
+      <td class="cart-quantity"><input class="btn-quantity" type="number" min="1" value="1"></td>
       <td class="cart-subtotal"><span class="subtotal-value">subtotal</span><button type="button" class="btn btn-danger btn-sm btn-spacing">Remove</td>
     </tr>
     <tr class="cart-row">
-      <th class="cart-item" scope="row"><img src="#"><span class="title">2</span></th>
+      <th class="cart-item" scope="row"><img src="#" width="50" height="50"><span class="title">2</span></th>
       <td class="cart-price">20€</td>
-      <td class="cart-quantity"><input class="btn-quantity" type="number" min="1"></td>
+      <td class="cart-quantity"><input class="btn-quantity" type="number" min="1" value="1"></td>
       <td class="cart-subtotal"><span class="subtotal-value">subtotal</span><button type="button" class="btn btn-danger btn-sm btn-spacing">Remove</td>
     </tr>
   </tbody>
@@ -92,7 +92,7 @@
   </tfoot>
 </table>
 <div class="btn-checkout"><button type="button" class="btn btn-success btn-lg" onclick="removeCartTable()">Checkout</div>
-<div id="backtoshop"></div>	
+<div id="backToHome"></div>
 
 </section>
 </main>
