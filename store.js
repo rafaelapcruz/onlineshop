@@ -9,20 +9,24 @@ document.addEventListener("DOMContentLoaded", updateCartSubtotal);
 
 function addItemToCart(title) {
 	for (var i = 0; i < title.length; i++) {
-	var itemName = title[i];
-	var newCartRow = document.createElement('tr');
-	newCartRow.setAttribute('class', 'cart-row');
-	var cartBody = document.getElementById('cart-body');
-	/*
-	var cartItemTitle = document.getElementsByClassName('title');
-	for (var i = 0; i < cartItemTitle.length; i++) {
-		if (cartItemTitle[i].innerText == itemName) {
-			var cartRow = cartItemTitle.parentElement.parentElement; //equals to cartElement
-			var quantityElement = rowElement.getElementsByClassName('btn-quantity')[0];
-			quantityElement.innerHTML = quantityElement.value + 1;
-			return
+		var newItem = title[i];
+		var newCartRow = document.createElement('tr');
+		newCartRow.setAttribute('class', 'cart-row');
+		var cartBody = document.getElementById('cart-body');
+		//remove multiples from the same item
+		var cartItemTitle = document.getElementsByClassName('title');
+		for (var i = 0; i < cartItemTitle.length; i++) {
+			if (cartItemTitle[i].innerText == newItem) {
+				var cartRow = cartItemTitle[i].parentElement.parentElement; //equals to cartElement
+				var quantityValue = parseFloat(cartRow.getElementsByClassName('btn-quantity')[0].value);
+				console.log(quantityValue)
+				quantityValue += 1;
+				console.log(quantityValue)
+				cartRow.getElementsByClassName('btn-quantity')[0].value = quantityValue;
+				continue //não está a deixar somar a seguir ao primeiro valor
+			}
+			
 		}
-	}*/	
 	var cartRowHTLM = `
 		<tr class="cart-row">
 			<th class="cart-item" scope="row"><img src="${image[i]}" width="50" height="50"><span class="title">${title[i]}</span></th>
@@ -51,10 +55,10 @@ function removeCartItem(event) {
 		document.getElementById('backToHome').innerHTML = buttonHome;
 		localStorage.clear();
 	} else {
-	var buttonClicked = event.target; //seleciona o botão que foi o "target" do evento (click)
-	var rowElement = buttonClicked.parentElement.parentElement;
-	//remove cartRow from array;
-	var titleElementTitle = rowElement.getElementsByClassName('title')[0].innerText;
+		var buttonClicked = event.target; //seleciona o botão que foi o "target" do evento (click)
+		var rowElement = buttonClicked.parentElement.parentElement;
+		//remove cartRow from array;
+		var titleElementTitle = rowElement.getElementsByClassName('title')[0].innerText;
 	for (var i = 0; i < title.length; i++) {
 		if (title[i] == titleElementTitle) {
 			title.splice(i, 1);
@@ -63,7 +67,6 @@ function removeCartItem(event) {
 			localStorage.setItem("title", title);
     		localStorage.setItem("price", price);
    			localStorage.setItem("image", image);
-
 		}
 	}
 	rowElement.remove()
