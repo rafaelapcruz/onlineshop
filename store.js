@@ -16,7 +16,7 @@ function addItemToCart(title) {
 		//remove multiples from the same item
 		var cartItemTitle = document.getElementsByClassName('title');
 		for (var i = 0; i < cartItemTitle.length; i++) {
-			if (cartItemTitle[i].innerText == newItem) {
+			if (newItem == cartItemTitle[i].innerText) {
 				var cartRow = cartItemTitle[i].parentElement.parentElement; //equals to cartElement
 				var quantityValue = parseFloat(cartRow.getElementsByClassName('btn-quantity')[0].value);
 				console.log(quantityValue)
