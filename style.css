@@ -11,24 +11,8 @@ body{
 	margin: 0 auto;
 }
 
-h1{
-	color: #C60;
-}
-
-h2{
-	padding-top: 10px;
-	color: #C60;
-}
-
-header{
-	clear: both;
-	padding: 0.5em;
-}
-
-nav{
-	clear: both;
-	background-color: #4286f4;
-	padding: 0.2em 0;
+.navbar{
+	border-bottom: 1px solid #f7a97b;
 }
 
 aside{
@@ -40,7 +24,7 @@ aside{
 }
 
 h3{
-	color: #036;
+	color: #212529;
 }
 
 /*O menu Favoritos deve ter um padding de 5 píxeis a toda a volta, 
@@ -49,35 +33,37 @@ deve ter uma moldura de 1px, de linha sólida e cor #C5C5C5.*/
 #favoritos{
 	padding: 5px;
 	margin-top: 1em ;
-	background-color: #F8F8F8;
-	border: 1px solid #C5C5C5; 
+	background-color: #fff1ea;
+	border: 1px solid #f7a97b; 
 }
 
-#favoritos p .date{
-	color: #999;
+#favoritos h3{
+	font-size: 1.5em;
+}
+
+#favoritos ul{
+	list-style-type: none;
+	margin: 0;
+	padding-left: 1em;
+}
+
+#favoritos li{
+	padding: 0.5em 0;
+}
+
+#favoritos a{
+	font-weight: bold;
+	color: #157347;
 	display: block;
+
 }
 
-/* O menu Grupos de ter também um padding de 5 píxeis a toda a volta,
-uma margem superior de 0.5em, uma cor de fundo de #FFF6CD 
-e uma moldura tracejada de 1px e cor #C60. */
-#grupos{
-	padding: 5px;
+#article3{
 	margin: 1em 0;
-	background-color: #FFF6CD;
-	border: 1px dashed #C60; 
-}
-
-#grupos a{
-	color: #C60;
-}
-
-#article3 article{
-	margin-bottom: 1em;
 }
 
 #article3 h2{
-	background-color: #DB905C;
+	background-color: #157347;
 	padding: 0.2em;
 	font-size: 1em;
 	color: #FFF;
@@ -92,6 +78,15 @@ main{
 	position: relative;
 	float: right;
 	width: 73%;
+}
+
+h1{
+	color: #f7a97b;/*#60*/
+}
+
+h2{
+	padding-top: 10px;
+	color: #f7a97b;/*#60*/
 }
 
 #principal{
@@ -120,9 +115,9 @@ footer{
 	clear: both;
 	margin-top: 1em;
 	padding: 0.1em 0;
-	border-top: 1px solid #C5C5C5;
-	border-bottom: 1px solid #C5C5C5;
-	background-color: #F8F8F8;
+	border-top: 1px solid #f7a97b;
+	border-bottom: 1px solid #f7a97b;
+	background-color: #fff1ea;
 	font-size: 0.8em;
 }
 

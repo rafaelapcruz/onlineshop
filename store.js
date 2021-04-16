@@ -47,7 +47,7 @@ function removeCartItem(event) {
 	if (cartRows.length == 1) {
 		removeCartTable();
 		document.getElementsByClassName('btn-checkout')[0].innerHTML = "Your cart is empty!";
-		var buttonHome = '<a class="btn btn-primary" href="./index.html" role="button" style="background-color: #f7d1ba; border-color: #DB905C; text-align: center;">Continue shopping</a>';
+		var buttonHome = '<a class="btn btn-primary" href="./index.html" role="button" style="background-color: #f7d1ba; border-color: #f7a97b; text-align: center;">Continue shopping</a>';
 		document.getElementById('backToHome').innerHTML = buttonHome;
 		localStorage.clear();
 	} else {

@@ -17,7 +17,7 @@
       <img src="./images/cover2.jpg" alt="" width="30" height="24">
       <!--src="https://st2.depositphotos.com/1005574/8145/v/600/depositphotos_81450808-stock-illustration-sunflower.jpg"-->
     </a>
-    <a class="navbar-brand" href="#">Sunflower House</a>
+    <a class="navbar-brand mb-0 h1" href="#" style="color: #157347;">Sunflower House</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,19 +36,14 @@
 </nav>
 
 <aside>
-	<div id=favoritos>
-		<h3>Favoritos</h3>
-		<p id=post1><span class="date">dd/mm/aaaa</span><a href="">Lorem ipsum dolor sit amet</a></p>
-		<p id=post2><span class="date">dd/mm/aaaa</span><a href="">Lorem ipsum dolor sit amet</a></p>
-		<p id=post3><span class="date">dd/mm/aaaa</span><a href="">Lorem ipsum dolor sit amet</a></p>
-	</div>
-
-	<div id=grupos>
-		<h3>Grupos</h3>
-		<p><i class="fas fa-home"></i> <a href="">Grupo 1</a></p>
-		<p><i class="fas fa-user"></i> <a href="">Grupo 2</a></p>
-		<p><i class="fas fa-trash"></i> <a href="">Grupo 3</a></p>
-	</div>
+  <div id=favoritos>
+    <h3>Your favorites</h3>
+    <ul id="fav-list">
+      <li id=plant1><a href="#monstera">Monstera deliciosa</a></li>
+      <li id=plant2><a href="#begonia">Begonia BELEAF ALASKA CREEK</li>
+      <li id=plant3><a href="#peperomia">Peperomia Green</a></li>
+    </ul>
+  </div>
 
 	<article id=article3>
 		<h2>Lorem ipsum dolor sit amet</h2>
@@ -93,7 +88,7 @@
 
 <div id="cardProducts" class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
-    <div class="card text-center h-100">
+    <div id="peperomia" class="card text-center h-100">
       <img src="./images/1.jpg" class="card-img-top" alt="Peperomia Green">
       <div class="card-body">
         <h5 class="card-title">Peperomia Green</h5>
@@ -133,7 +128,7 @@
     </div>
   </div>
   <div class="col">
-    <div class="card text-center h-100">
+    <div id="begonia" class="card text-center h-100">
       <img src="./images/5.jpg" class="card-img-top" alt="Begonia BELEAF ALASKA CREEK">
       <div class="card-body">
         <h5 class="card-title">Begonia BELEAF ALASKA CREEK</h5>
@@ -143,7 +138,7 @@
     </div>
   </div>
   <div class="col">
-    <div class="card text-center h-100">
+    <div id="monstera" class="card text-center h-100">
       <img src="./images/6.jpg" class="card-img-top" alt="Monstera deliciosa">
       <div class="card-body">
         <h5 class="card-title">Monstera deliciosa</h5>
