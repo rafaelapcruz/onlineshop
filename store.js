@@ -10,6 +10,7 @@ function addItemToCart(title) {
 	for (var i = 0; i < title.length; i++) {
 	var itemName = title[i];
 	var newCartRow = document.createElement('tr');
+	newCartRow.setAttribute('class', 'cart-row');
 	var cartBody = document.getElementById('cart-body');
 	/*
 	var cartItemTitle = document.getElementsByClassName('title');
