@@ -5,6 +5,7 @@ var image = (localStorage.getItem("image")).split(",");
 console.log(title, price, image);
 
 document.addEventListener("DOMContentLoaded", addItemToCart(title));
+document.addEventListener("DOMContentLoaded", updateCartSubtotal);
 
 function addItemToCart(title) {
 	for (var i = 0; i < title.length; i++) {
@@ -48,9 +49,25 @@ function removeCartItem(event) {
 		document.getElementsByClassName('btn-checkout')[0].innerHTML = "Your cart is empty!";
 		var buttonHome = '<a class="btn btn-primary" href="./index.html" role="button" style="background-color: #f7d1ba; border-color: #DB905C; text-align: center;">Continue shopping</a>';
 		document.getElementById('backToHome').innerHTML = buttonHome;
+		localStorage.clear();
 	} else {
 	var buttonClicked = event.target; //seleciona o botão que foi o "target" do evento (click)
-	buttonClicked.parentElement.parentElement.remove()
+	var rowElement = buttonClicked.parentElement.parentElement;
+	//remove cartRow from array;
+	var titleElementTitle = rowElement.getElementsByClassName('title')[0].innerText;
+	for (var i = 0; i < title.length; i++) {
+		if (title[i] == titleElementTitle) {
+			title.splice(i, 1);
+			price.splice(i, 1);
+			image.splice(i, 1);
+			localStorage.setItem("title", title);
+    		localStorage.setItem("price", price);
+   			localStorage.setItem("image", image);
+
+		}
+	}
+	rowElement.remove()
+
 	updateCartTotal();
 	}
 }
@@ -73,7 +90,7 @@ function updateCartTotal() {
 		console.log(subtotalValue);
 		cartTotal += subtotalValue;
 	}
-	document.getElementsByClassName('cart-total')[0].innerText = cartTotal + "€";
+	document.getElementsByClassName('cart-total')[0].innerText = cartTotal.toFixed(2) + "€";
 }
 
 function updateCartSubtotal() {
@@ -92,7 +109,7 @@ function updateCartSubtotal() {
 		console.log(quantity);
 		rowSubtotal += price * quantity;
 		console.log(rowSubtotal);
-		rowElement.getElementsByClassName('subtotal-value')[0].innerText = rowSubtotal + "€";
+		rowElement.getElementsByClassName('subtotal-value')[0].innerText = rowSubtotal.toFixed(2) + "€";
 		rowSubtotal = 0;
 	}
 	updateCartTotal();
