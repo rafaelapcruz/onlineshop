@@ -168,20 +168,54 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-  var titleArray = [];
-  var priceArray = [];
-  var imageSrcArray = [];
+  //console.log(localStorage.getItem('title'));
+  if (localStorage.getItem('title')) {
+    var titleArray = localStorage.getItem('title').split(',');
+    var quantityArray = localStorage.getItem('quantity').split(',');
+    var priceArray = localStorage.getItem('price').split(',');
+    var imageSrcArray = localStorage.getItem('image').split(',');
+  } else {
+    var titleArray = [];
+    var quantityArray = [];
+    var priceArray = [];
+    var imageSrcArray = [];
+  }
+  
+
+  function adicionarItem(title, quantity, price, imageSrc) {
+    titleArray.push(title);
+    quantityArray.push(quantity);
+    priceArray.push(price);
+    imageSrcArray.push(imageSrc);
+  }
+  
   function getItemToCart() {
     var cardElement = event.target.parentElement.parentElement;
     console.log(cardElement);
     var title = cardElement.getElementsByClassName("card-title")[0].innerText;
     var price = cardElement.getElementsByClassName("card-text")[0].innerText;
     var imageSrc = cardElement.getElementsByClassName("card-img-top")[0].src;
-    titleArray.push(title);
-    priceArray.push(price);
-    imageSrcArray.push(imageSrc);
-    console.log(titleArray, priceArray, imageSrcArray)
+
+    var itemRepetido = false;
+    for (var i = 0; i < titleArray.length; i++) {
+      if (title == titleArray[i]) {
+          var quantityFloat = parseFloat(quantityArray[i]);
+          quantityFloat += 1;
+          quantityArray[i] = quantityFloat;
+          itemRepetido = true;
+          break;
+      }
+    }
+
+    if (!itemRepetido) {
+      titleArray.push(title);
+      quantityArray.push("1");
+      priceArray.push(price);
+      imageSrcArray.push(imageSrc);
+    }
+    console.log(titleArray, quantityArray, priceArray, imageSrcArray)
     localStorage.setItem("title", titleArray);
+    localStorage.setItem("quantity", quantityArray);
     localStorage.setItem("price", priceArray);
     localStorage.setItem("image", imageSrcArray);
   }
