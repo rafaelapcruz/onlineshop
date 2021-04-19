@@ -168,20 +168,56 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-  var titleArray = [];
-  var priceArray = [];
-  var imageSrcArray = [];
+//verificação da existência de variáveis na LocalStorage: se existirem variáveis "get those variables", se não criamos novos Arrays vazios
+  if (localStorage.getItem("title")) { //https://stackoverflow.com/questions/29274374/what-does-this-mean-if-variable-do-something
+    var titleArray = (localStorage.getItem("title")).split(",");
+    var quantityArray = (localStorage.getItem("quantity")).split(",");
+    var priceArray = (localStorage.getItem("price")).split(",");
+    var imageSrcArray = (localStorage.getItem("image")).split(",");
+
+  } else {
+    var titleArray = [];
+    var quantityArray = [];
+    var priceArray = [];
+    var imageSrcArray = [];
+  }
+
+  //adição de um novo item aos Arrays definidos
+  function addToArray(title, price, imageSrc) {
+    titleArray.push(title);
+    quantityArray.push("1");
+    priceArray.push(price);
+    imageSrcArray.push(imageSrc);
+    console.log(titleArray, quantityArray, priceArray, imageSrcArray)
+  }
+
+  //adição de um novo item ao carrinho, que na página Index corresponde a adicionar um Array com os items selecionados à LocalStorage
   function getItemToCart() {
+    //"agarrar" o novo item para ser adicionado ao carrinho quando ocorre um evento do tipo "onclick" associado a esta função
     var cardElement = event.target.parentElement.parentElement;
     console.log(cardElement);
     var title = cardElement.getElementsByClassName("card-title")[0].innerText;
     var price = cardElement.getElementsByClassName("card-text")[0].innerText;
     var imageSrc = cardElement.getElementsByClassName("card-img-top")[0].src;
-    titleArray.push(title);
-    priceArray.push(price);
-    imageSrcArray.push(imageSrc);
-    console.log(titleArray, priceArray, imageSrcArray)
+
+    //verificação da existência de um item igual já adicionado ao carrinho (neste caso aos Arrays guardados na LocalStorage)
+    var duplicateItem = false; //Para um qq item parte-se do pressuposto que não é repetido, pelo que vamos verificar essa consição no if statement. Se a consição se verificar (item É DUPLICADO), adicionamos 1 ao item que já está no Array, e então duplicateItem passa a ser verdadeiro. E podemos fazer break do if statement por uma questão de redução de código para processar.
+    for (var i = 0; i < titleArray.length; i++) {
+      if (title == titleArray[i]) {
+        var quantityFloat = parseFloat(quantityArray[i]);
+        quantityFloat += 1;
+        quantityArray[i] = quantityFloat;
+        duplicateItem = true;
+        break;
+      }
+    }
+     if (!duplicateItem) { //Se o item NÃO for duplicado, colocamos esse item nos Arrays.
+      addToArray(title, price, imageSrc);
+     }
+
+    //adição dos Arrays definidos à LocalStorage
     localStorage.setItem("title", titleArray);
+    localStorage.setItem("quantity", quantityArray);
     localStorage.setItem("price", priceArray);
     localStorage.setItem("image", imageSrcArray);
   }

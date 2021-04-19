@@ -1,5 +1,6 @@
 
 var title = (localStorage.getItem("title")).split(",");
+var quantity = (localStorage.getItem("quantity")).split(",");
 var price = (localStorage.getItem("price")).split(",");
 var image = (localStorage.getItem("image")).split(",");
 console.log(title, price, image);
@@ -13,30 +14,16 @@ function addItemToCart(title) {
 		var newCartRow = document.createElement('tr');
 		newCartRow.setAttribute('class', 'cart-row');
 		var cartBody = document.getElementById('cart-body');
-		//remove multiples from the same item
-		var cartItemTitle = document.getElementsByClassName('title');
-		for (var i = 0; i < cartItemTitle.length; i++) {
-			if (newItem == cartItemTitle[i].innerText) {
-				var cartRow = cartItemTitle[i].parentElement.parentElement; //equals to cartElement
-				var quantityValue = parseFloat(cartRow.getElementsByClassName('btn-quantity')[0].value);
-				console.log(quantityValue)
-				quantityValue += 1;
-				console.log(quantityValue)
-				cartRow.getElementsByClassName('btn-quantity')[0].value = quantityValue;
-				continue //não está a deixar somar a seguir ao primeiro valor
-			}
-			
-		}
-	var cartRowHTLM = `
-		<tr class="cart-row">
-			<th class="cart-item" scope="row"><img src="${image[i]}" width="50" height="50"><span class="title">${title[i]}</span></th>
-			<td class="cart-price">${price[i]}</td>
-			<td class="cart-quantity"><input class="btn-quantity" type="number" min="1" value="1"></td>
-			<td class="cart-subtotal"><span class="subtotal-value">subtotal</span><button type="button" class="btn btn-danger btn-sm btn-spacing">Remove</td>
-		</tr>`
-	newCartRow.innerHTML = cartRowHTLM;
-	cartBody.append(newCartRow);
-	newCartRow.getElementsByClassName('btn-quantity')[0].addEventListener('change', updateCartSubtotal);
+		var cartRowHTLM = `
+			<tr class="cart-row">
+				<th class="cart-item" scope="row"><img src="${image[i]}" width="50" height="50"><span class="title">${title[i]}</span></th>
+				<td class="cart-price">${price[i]}</td>
+				<td class="cart-quantity"><input class="btn-quantity" type="number" min="1" value="${quantity[i]}"></td>
+				<td class="cart-subtotal"><span class="subtotal-value">subtotal</span><button type="button" class="btn btn-danger btn-sm btn-spacing">Remove</td>
+			</tr>`
+		newCartRow.innerHTML = cartRowHTLM;
+		cartBody.append(newCartRow);
+		newCartRow.getElementsByClassName('btn-quantity')[0].addEventListener('change', updateCartSubtotal);
 	}
 }
 
